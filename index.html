@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MinjeongHub</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>MinjeongHub Finder</header>
+    <div>
+      <div class="first-block">
+        <div>
+          <h1>Search GitHub Users</h1>
+        </div>
+        <div>
+          <p class="discriptionP">Enter a username to fetch a user profile and repos</p>
+        </div>
+        <div class="input-container">
+          <input id="input" class="input" type="text" placeholder="" value="" />
+        </div>
+      </div>
+
+      <div class="second-block">
+        <div class="image-container">
+          <img id="image" src="" alt="profile image" />
+          <a id="view-file" href=""> View Profile </a>
+        </div>
+
+        <div>
+          <div class="four-button-container">
+            <div class="public-repos">Public Repos: <span id="public-repos">0</span></div>
+            <div class="public-gists">Public Gists: <span id="public-gists">0</span></div>
+            <div class="followers">Followers: <span id="followers">0</span></div>
+            <div class="following">Following: <span id="following">0</span></div>
+          </div>
+          <div class="list-container">
+            <div class="list">Company: <span id="company">null</span></div>
+            <div class="list">Website/Blog: <span id="blog">null</span></div>
+            <div class="list">Location: <span id="location">null</span></div>
+            <div class="last-list">Member Since: <span id="created_at">null</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="third-block">
+        <h2>Latest Repos</h2>
+        <div id="repos"></div>
+      </div>
+    </div>
+    <footer>MinjeongHub Finder ⓒ</footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
