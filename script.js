@@ -1,6 +1,8 @@
 import { Octokit, App } from 'https://esm.sh/octokit';
 
-const octokit = new Octokit({ auth: process.env.ACCESS_TOKEN });
+const octokit = new Octokit({
+  auth: process.env.ACCESS_TOKEN,
+});
 
 // 엔터 눌렀을 때 입력된 사용자 정보 불러오는 함수 실행
 const inputEl = document.getElementById('input');
@@ -11,6 +13,7 @@ inputEl.addEventListener('keydown', (event) => {
     inputEl.value != localStorage.getItem('user')
   ) {
     localStorage.setItem('user', inputEl.value);
+    location.reload();
     getUserData(inputEl.value);
   }
 });
@@ -22,7 +25,6 @@ const getUserData = async (user) => {
   await octokit
     .request(apiUrl + user)
     .then(async ({ data }) => {
-      console.log('data : ', data);
       const imgEl = document.getElementById('image');
       imgEl.src = data.avatar_url;
 
@@ -54,7 +56,7 @@ const getUserData = async (user) => {
       await getRepos(data.repos_url);
     })
     .catch((error) => {
-      console.error('요청 실패', error);
+      console.error('요청 실패!!!!', error);
     });
 };
 
@@ -71,6 +73,7 @@ const clickViewFile = async (url) => {
 
 // repository 배열 가져오는 함수
 const getRepos = async (url) => {
+  console.log('url : ', url);
   await octokit
     .request(url)
     .then(async ({ data }) => {
